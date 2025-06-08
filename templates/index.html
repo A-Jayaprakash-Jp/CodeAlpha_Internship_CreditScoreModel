@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+        }
+        .btn-primary {
+            background-color: #4e73df;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #2e59d9;
+        }
+        .header {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h1 class="text-center mb-4 text-dark">Credit Score Predictor</h1>
+                            <p class="text-center mb-4 text-muted">Fill in your financial details to get an instant credit score prediction</p>
+
+                            <form action="/predict" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="annual_income" class="form-label text-dark">Annual Income ($)</label>
+                                        <input type="number" class="form-control" id="annual_income" name="annual_income" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="num_bank_accounts" class="form-label text-dark">Number of Bank Accounts</label>
+                                        <input type="number" class="form-control" id="num_bank_accounts" name="num_bank_accounts" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="num_credit_cards" class="form-label text-dark">Number of Credit Cards</label>
+                                        <input type="number" class="form-control" id="num_credit_cards" name="num_credit_cards" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="interest_rate" class="form-label text-dark">Average Interest Rate (%)</label>
+                                        <input type="number" step="0.1" class="form-control" id="interest_rate" name="interest_rate" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="num_loans" class="form-label text-dark">Number of Active Loans</label>
+                                        <input type="number" class="form-control" id="num_loans" name="num_loans" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="delay_due_date" class="form-label text-dark">Average Delay from Due Date (days)</label>
+                                        <input type="number" class="form-control" id="delay_due_date" name="delay_due_date" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="num_delayed_payments" class="form-label text-dark">Number of Delayed Payments</label>
+                                        <input type="number" class="form-control" id="num_delayed_payments" name="num_delayed_payments" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="changed_credit_limit" class="form-label text-dark">Changed Credit Limit (%)</label>
+                                        <input type="number" step="0.1" class="form-control" id="changed_credit_limit" name="changed_credit_limit" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="outstanding_debt" class="form-label text-dark">Outstanding Debt ($)</label>
+                                        <input type="number" class="form-control" id="outstanding_debt" name="outstanding_debt" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="credit_utilization" class="form-label text-dark">Credit Utilization Ratio (%)</label>
+                                        <input type="number" step="0.1" class="form-control" id="credit_utilization" name="credit_utilization" required>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">Predict Credit Score</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
